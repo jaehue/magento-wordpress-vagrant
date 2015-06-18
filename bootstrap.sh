@@ -2,7 +2,7 @@
 
 SAMPLE_DATA=$1
 MAGE_VERSION="1.9.1.1"
-DATA_VERSION="1.9.1.0"
+DATA_VERSION="1.9.0.0"
 
 # Update Apt
 # --------------------
@@ -123,10 +123,11 @@ WORDPRESS_UPSTREAM_VERSION=4.2.2
 WORDPRESS_SHA1=d3a70d0f116e6afea5b850f793a81a97d2115039
 
 # upstream tarballs include ./wordpress/ so this gives us /usr/src/wordpress
+mkdir /vagrant/wordpress
 curl -o wordpress.tar.gz -SL https://wordpress.org/wordpress-${WORDPRESS_UPSTREAM_VERSION}.tar.gz \
   && echo "$WORDPRESS_SHA1 *wordpress.tar.gz" | sha1sum -c - \
-  && tar -xzf wordpress.tar.gz -C /usr/src/ \
+  && tar -xzf wordpress.tar.gz -C /vagrant/ \
   && rm wordpress.tar.gz \
-  && chown -R www-data:www-data /usr/src/wordpress
+  && chown -R www-data:www-data /vagrant/wordpress
 
-ln -fs /usr/src/wordpress /var/www/html/wp
+ln -fs /vagrant/wordpress /var/www/html/wp
