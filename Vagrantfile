@@ -23,8 +23,9 @@ Vagrant.configure("2") do |config|
   config.ssh.forward_agent = true
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
-    vb.name = "simple-magento-vagrant"
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
+    vb.name = "magento-wordpress-vagrant"
+    vb.cpus = 4
   end
 
 end
