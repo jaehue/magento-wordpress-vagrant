@@ -1,6 +1,7 @@
 .vagrant
 package.box
 httpdocs
+wordpress
 magento-sample-data*.tar.gz
 
 # Numerous always-ignore extensions
